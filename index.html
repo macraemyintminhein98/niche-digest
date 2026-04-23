@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NicheDigest - Curated Feeds</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; background-color: #f0f2f5; color: #333; }
+        .container { max-width: 800px; margin: 40px auto; background-color: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; text-align: center; margin-bottom: 25px; }
+        p { line-height: 1.6; color: #555; text-align: center; margin-bottom: 30px; }
+        .cta-button { display: block; width: fit-content; margin: 0 auto; padding: 12px 25px; background-color: #3498db; color: #fff; text-decoration: none; border-radius: 5px; font-size: 18px; text-align: center; transition: background-color 0.3s ease; }
+        .cta-button:hover { background-color: #2980b9; }
+        .features { margin-top: 40px; text-align: center; }
+        .features h2 { color: #2c3e50; margin-bottom: 20px; }
+        .feature-item { display: inline-block; margin: 0 15px; padding: 15px; border: 1px solid #eee; border-radius: 5px; background-color: #fdfdfd; }
+        .feed-input { display: flex; flex-direction: column; align-items: center; gap: 10px; margin-top: 30px; }
+        .feed-input label { font-weight: bold; }
+        .feed-input input[type="url"] { width: 100%; max-width: 400px; padding: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        .feed-input button { padding: 10px 20px; background-color: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; transition: background-color 0.3s ease; }
+        .feed-input button:hover { background-color: #229a56; }
+        .digest-area { margin-top: 40px; border-top: 1px solid #eee; padding-top: 20px; }
+        .digest-area h2 { text-align: center; color: #2c3e50; margin-bottom: 20px; }
+        .article { background-color: #f9f9f9; border: 1px solid #eee; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .article h3 a { color: #3498db; text-decoration: none; }
+        .article h3 a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NicheDigest</h1>
+        <p>Your ad-free, curated digest for hyper-specific content.</p>
+        <p>Stop sifting through noise. Get straight to the high-value updates in your niche.</p>
+
+        <div class="feed-input">
+            <label for="rss-feed-url">Add your RSS feed:</label>
+            <input type="url" id="rss-feed-url" name="rss-feed-url" placeholder="e.g., https://example.com/rss.xml">
+            <button onclick="addFeed()">Subscribe</button>
+        </div>
+
+        <div class="digest-area" id="digest-content">
+            <h2>Your Latest Digest</h2>
+            <p style="text-align: center;">No feeds added yet. Add an RSS feed above to get started!</p>
+            <!-- Example static content (will be replaced by dynamic data) -->
+             <div class="article">
+                <h3><a href="#">Article Title 1 from My Niche</a></h3>
+                <p>A brief summary or excerpt of the article content...</p>
+            </div>
+            <div class="article">
+                <h3><a href="#">Another Important Update 2</a></h3>
+                <p>More relevant information you won't find easily elsewhere.</p>
+            </div>
+        </div>
+
+        <a href="/subscribe" class="cta-button">Get Unlimited Feeds for $9.99/month</a>
+    </div>
+    <script>
+        function addFeed() {
+            const url = document.getElementById('rss-feed-url').value;
+            if (url) {
+                alert('Implementing feed parsing for: ' + url + '\n(This is a placeholder action in the MVP.)');
+                // In a real app, this would send to backend to store and scrape.
+                // Then refresh the digest-area with new content.
+                document.getElementById('rss-feed-url').value = '';
+                const digestContent = document.getElementById('digest-content');
+                digestContent.innerHTML = '<h2>Your Latest Digest</h2><p style="text-align: center;">Loading your curated content...</p>';
+            } else {
+                alert('Please enter a valid URL.');
+            }
+        }
+    </script>
+</body>
+</html>
